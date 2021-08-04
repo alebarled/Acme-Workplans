@@ -70,6 +70,7 @@ master.menu.manager = Manager
 master.menu.manager.tasks = Tasks
 master.menu.manager.personal.tasks = Personal Tasks
 master.menu.manager.personal.create = Create Task
+master.menu.manager.personal.workplans = Personal Workplans
 
 
 # master.menu.manager ##########################################################

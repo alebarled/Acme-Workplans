@@ -76,7 +76,7 @@ master.menu.manager.favourite-link = Enlace favorito
 master.menu.manager = Manager
 master.menu.manager.tasks = Tareas
 master.menu.manager.personal.tasks = Tareas personales
-master.menu.manager.plans = Planes
+master.menu.manager.personal.workplans = Planes personales
 
 # master.menu.user-account ####################################################
 

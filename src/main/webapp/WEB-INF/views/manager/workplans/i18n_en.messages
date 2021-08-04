@@ -1,0 +1,13 @@
+# i18_en.messages
+# Los mensajes en ingles
+
+manager.workplan.list.label.id = ID
+manager.workplan.list.label.title = Title
+manager.workplan.list.label.executionStart = Execution start
+manager.workplan.list.label.executionEnd = Execution end
+manager.workplan.list.label.workload = Workload
+manager.workplan.list.label.isPublic = Public
+manager.workplan.list.label.return = Return
+manager.workplan.create.label.create = Create
+manager.workplan.form.button.update = Update
+manager.workplan.form.button.delete = Delete

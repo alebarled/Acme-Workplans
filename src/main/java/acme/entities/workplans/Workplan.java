@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
@@ -41,7 +42,7 @@ public class Workplan extends DomainEntity{
 	// Relationships ----------------------------------------------------------
 	
 	@Valid
-	@ManyToMany(cascade = CascadeType.REFRESH)
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.REFRESH)
 	List<Task> tasks;
 	
 	@NotNull
@@ -52,7 +53,25 @@ public class Workplan extends DomainEntity{
 	// Derived attributes -----------------------------------------------------
 	
 	public Double getWorkload(){
-		return this.tasks.stream().mapToDouble(x->(double)x.getWorkload()).sum();
+		Integer hours = 0;
+		Integer minutes = 0;
+		
+		for(final Task t: this.tasks) {
+			final String[] array = t.getWorkload().toString().split("\\.");
+			hours += Integer.parseInt(array[0]);
+			minutes += Integer.parseInt(array[1]);
+		}
+		hours += minutes / 60;
+		minutes = minutes % 60;
+		
+		String stringMinutes = String.valueOf(minutes);
+		
+		while(stringMinutes.length()<2)
+			stringMinutes = "0" + stringMinutes;
+		
+		
+		return Double.parseDouble(hours+"."+stringMinutes);
 	}
+	
 
 }
