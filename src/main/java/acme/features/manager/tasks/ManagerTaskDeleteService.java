@@ -5,6 +5,8 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.roles.Manager;
 import acme.entities.tasks.Task;
+import acme.entities.workplans.Workplan;
+import acme.features.manager.workplans.ManagerWorkplanRepository;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -15,6 +17,9 @@ public class ManagerTaskDeleteService implements AbstractDeleteService<Manager, 
 
 	@Autowired
 	protected ManagerTaskRepository managerTaskRepository;
+	
+	@Autowired
+	protected ManagerWorkplanRepository workplanRepository;
 	
 	@Override
 	public boolean authorise(final Request<Task> request) {
@@ -28,7 +33,12 @@ public class ManagerTaskDeleteService implements AbstractDeleteService<Manager, 
 	public void delete(final Request<Task> request, final Task entity) {
 		assert request != null;
 		assert entity != null;	
-				
+		
+		for(final Workplan w: entity.getWorkplans()) {
+			w.getTasks().remove(entity);
+			this.workplanRepository.save(w);
+		}
+		entity.getWorkplans().clear();
 		this.managerTaskRepository.delete(entity);
 		
 	}
