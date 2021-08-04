@@ -414,10 +414,25 @@
 	<property name="word" value="millón de dolares"/>	
 	</bean>
 	
-	<!-- Blacklist words -->
+	<!-- Blacklist config -->
 	
 	<bean id="spamconfig01" class="acme.entities.spamConfig.SpamConfig">
 		<property name="threshold" value="10.00"/>	
+	</bean>
+	
+	<!-- Work plans -->
+	
+	<bean id="workplan01" class="acme.entities.workplans.Workplan">
+		<property name="executionStart" value="2020/05/01 12:00"/>
+		<property name="executionEnd" value="2022/06/22 20:00"/>
+		<property name="isPublic" value="true"/>
+		<property name="manager" ref="manager01"/>
+		<property name="tasks">
+			<list>
+				<ref bean="task02"/>
+				<ref bean="task03"/>
+			</list>
+		</property>
 	</bean>
 	
 </beans>
