@@ -423,6 +423,8 @@
 	<!-- Work plans -->
 	
 	<bean id="workplan01" class="acme.entities.workplans.Workplan">
+		<property name="title" value="Important tasks"/>
+		<property name="description" value="Must-do before start others!"/>
 		<property name="executionStart" value="2020/05/01 12:00"/>
 		<property name="executionEnd" value="2022/06/22 20:00"/>
 		<property name="isPublic" value="true"/>

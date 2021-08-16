@@ -3,6 +3,7 @@ package acme.features.manager.workplans;
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Service;
 
 import acme.entities.roles.Manager;
@@ -38,8 +39,8 @@ public class ManagerWorkplanShowService implements AbstractShowService<Manager, 
 		final Collection<Task> managerTasks = this.taskRepository.findManyByManagerId(request.getPrincipal().getActiveRoleId());
 		
 		model.setAttribute("managerTasks", managerTasks);
-	
-		request.unbind(entity, model, "id","executionStart", "executionEnd","isPublic","tasks","manager","workload");
+		model.setAttribute("language", LocaleContextHolder.getLocale());
+		request.unbind(entity, model, "id","title","description","executionStart", "executionEnd","isPublic","tasks","manager","workload");
 		
 	}
 

@@ -48,6 +48,7 @@
 			<acme:menu-suboption code="master.menu.manager.personal.tasks" action="/manager/task/list-mine"/>
 			<acme:menu-suboption code="master.menu.manager.personal.create" action="/manager/task/create"/>
 			<acme:menu-suboption code="master.menu.manager.personal.workplans" action="/manager/workplan/list-mine"/>
+			<acme:menu-suboption code="master.menu.manager.personal.createworkplan" action="/manager/workplan/create"/>
 
 		</acme:menu-option>
 

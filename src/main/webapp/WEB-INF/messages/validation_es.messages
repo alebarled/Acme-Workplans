@@ -53,3 +53,7 @@ acme.validators.validworkloadtoomuchdecimals = La carga de trabajo debe contener
 
 
 acme.validators.spamtext = Texto considerado spam
+
+acme.validators.privatetasks = Los planes de trabajo públicos no pueden contener tareas privadas
+
+acme.validators.workplanperiod = El periodo del plan de trabajo no se ajusta a sus tareas
