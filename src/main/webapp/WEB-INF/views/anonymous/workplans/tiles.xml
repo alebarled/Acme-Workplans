@@ -1,0 +1,20 @@
+<!DOCTYPE tiles-definitions PUBLIC
+	"-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" 
+	"http://tiles.apache.org/dtds/tiles-config_3_0.dtd"> 
+
+<tiles-definitions>
+
+	<definition name="anonymous/workplan/list" extends="master">
+		<put-attribute name="body" type="template" value="../anonymous/workplans/list.jsp"></put-attribute>
+	</definition>
+
+	<definition name="anonymous/workplan/form" extends="master">
+		<put-attribute name="body" type="template" value="../anonymous/workplans/form.jsp"></put-attribute>
+	</definition>
+	
+		<definition name="anonymous/workplan/create" extends="master">
+		<put-attribute name="body" type="template" value="../anonymous/workplans/form.jsp"></put-attribute>
+	</definition>
+
+
+</tiles-definitions>

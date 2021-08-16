@@ -1,22 +1,21 @@
-package acme.features.manager.workplans;
+package acme.features.anonymous.workplans;
 
 import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import acme.entities.roles.Manager;
 import acme.entities.workplans.Workplan;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
+import acme.framework.entities.Anonymous;
 import acme.framework.services.AbstractListService;
 
 @Service
-public class ManagerWorkplanListMineService implements AbstractListService<Manager, Workplan>{
+public class AnonymousWorkplanListService implements AbstractListService<Anonymous, Workplan> {
 	
-	//Internal state --------------------------------------------------
 	@Autowired
-	ManagerWorkplanRepository repository;
+	AnonymousWorkplanRepository repository;
 
 	@Override
 	public boolean authorise(final Request<Workplan> request) {
@@ -36,8 +35,7 @@ public class ManagerWorkplanListMineService implements AbstractListService<Manag
 
 	@Override
 	public Collection<Workplan> findMany(final Request<Workplan> request) {
-		assert request!=null;
-		 return this.repository.findManyByManagerId(request.getPrincipal().getActiveRoleId());
+		return this.repository.findMany();
 	}
 
 }

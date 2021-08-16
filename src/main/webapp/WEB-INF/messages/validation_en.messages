@@ -52,3 +52,7 @@ acme.validators.validtasksinplan = Only public tasks can be associated to a publ
 acme.validators.validworkloadtoomuchdecimals = Workload must contain 2 decimal figures or less
 
 acme.validators.spamtext = Text considerated spam
+
+acme.validators.privatetasks = Public workplans can not contain private tasks
+
+acme.validators.workplanperiod = The workplan period does not accommodate all of its tasks
