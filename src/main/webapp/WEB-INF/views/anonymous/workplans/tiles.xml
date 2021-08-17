@@ -12,9 +12,6 @@
 		<put-attribute name="body" type="template" value="../anonymous/workplans/form.jsp"></put-attribute>
 	</definition>
 	
-		<definition name="anonymous/workplan/create" extends="master">
-		<put-attribute name="body" type="template" value="../anonymous/workplans/form.jsp"></put-attribute>
-	</definition>
 
 
 </tiles-definitions>

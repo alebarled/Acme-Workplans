@@ -20,8 +20,9 @@
 	<acme:menu-left>
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
 			<acme:menu-suboption code="master.menu.anonymous.shoutsList" action="/anonymous/shout/list"/>
-			<acme:menu-suboption code="master.menu.anonymous.tasks" action="/anonymous/task/list"/>
 			<acme:menu-suboption code="master.menu.anonymous.shout.create" action="/anonymous/shout/create"/>
+			<acme:menu-suboption code="master.menu.anonymous.tasks" action="/anonymous/task/list"/>
+			<acme:menu-suboption code="master.menu.anonymous.workplans" action="/anonymous/workplan/list"/>
 		</acme:menu-option>
 		
 		<acme:menu-option code="authenticated.menu.authenticated" access="isAuthenticated()">
