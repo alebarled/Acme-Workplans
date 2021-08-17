@@ -1,5 +1,6 @@
 package acme.features.anonymous.workplans;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.entities.workplans.Workplan;
@@ -10,23 +11,29 @@ import acme.framework.services.AbstractShowService;
 
 @Service
 public class AnonymousWorkplanShowService implements AbstractShowService<Anonymous, Workplan> {
+	
+	@Autowired
+	AnonymousWorkplanRepository repository;
 
 	@Override
 	public boolean authorise(final Request<Workplan> request) {
-		// TODO Auto-generated method stub
-		return false;
+		assert request !=null;
+		return true;
 	}
 
 	@Override
 	public void unbind(final Request<Workplan> request, final Workplan entity, final Model model) {
-		// TODO Auto-generated method stub
+		assert request != null;
+		assert entity != null;
+		assert model != null;
+		
+		request.unbind(entity, model, "id","title","description","executionStart", "executionEnd","isPublic","tasks","manager","workload");
 		
 	}
 
 	@Override
 	public Workplan findOne(final Request<Workplan> request) {
-		// TODO Auto-generated method stub
-		return null;
+		return this.repository.findOneWorkplanById(request.getModel().getInteger("id"));
 	}
 
 

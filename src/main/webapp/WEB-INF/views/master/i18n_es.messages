@@ -29,7 +29,7 @@ master.menu.sign-out = Salir
 
 master.menu.anonymous = Anónimo
 master.menu.anonymous.favourite-link = Enlace favorito
-master.menu.anonymous.plans = Planes
+master.menu.anonymous.workplans = Planes
 master.menu.anonymous.shoutsList = Lista de anuncios
 master.menu.anonymous.tasks = Tareas
 master.menu.anonymous.shout.create = Crear anuncio
