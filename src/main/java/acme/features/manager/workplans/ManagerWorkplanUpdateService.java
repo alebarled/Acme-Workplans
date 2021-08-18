@@ -1,5 +1,6 @@
 package acme.features.manager.workplans;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.Date;
@@ -74,6 +75,8 @@ public class ManagerWorkplanUpdateService implements AbstractUpdateService<Manag
 			entity.setTasks(entity.getNewTasks().stream()
 				.map(x->this.taskRepository.findOneTaskById(Integer.parseInt(x)))
 				.collect(Collectors.toList()));
+		}else {
+			entity.setTasks(new ArrayList<>());
 		}
 		
 		/// Private tasks validate
@@ -122,6 +125,8 @@ public class ManagerWorkplanUpdateService implements AbstractUpdateService<Manag
 			entity.setTasks(entity.getNewTasks().stream()
 				.map(x->this.taskRepository.findOneTaskById(Integer.parseInt(x)))
 				.collect(Collectors.toList()));
+		}else {
+			entity.setTasks(new ArrayList<>());
 		}
 		
 		this.repository.save(entity);

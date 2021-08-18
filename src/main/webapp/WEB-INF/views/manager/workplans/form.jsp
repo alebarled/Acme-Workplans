@@ -19,35 +19,43 @@ var taskdict = {};
 	
 	<acme:form-checkbox code="manager.workplan.list.label.isPublic" path="isPublic"/>
 	
-	<label for="tasks"><acme:message code="manager.workplan.list.label.tasks"/></label>
-  	(<acme:message code="manager.workplan.list.label.public"/>: <span id=publica>0</span>, 
-  	<acme:message code="manager.workplan.list.label.private"/>: <span id=privada>0</span>)
-  	
-  		<select class="table table-striped" name="newTasks" id="newTasks" multiple>
-	  	<c:forEach items="${managerTasks}" var="task">
-	  	<option value=<c:out value="${task.id}"/>>
-	    	<c:out value="${task.title}"/>
-	    </option>
-	    	
-	  	<c:if test="${fn:contains(tasks, task)}">
-	  	<script>selectarray.push(<c:out value="${task.id}"/>)</script>
-	  	</c:if>
-	  	
-	  	<script>
-	  	var start = moment('<c:out value="${task.executionStart}"/>',"YYYY-MM-DD HH:mm:ss.s");
-	  	var end = moment('<c:out value="${task.executionEnd}"/>',"YYYY-MM-DD HH:mm:ss.s");
-	  	
-	  	taskdict[<c:out value="${task.id}"/>]={executionStart:start,
-	  			executionEnd:end,
-	  			workload:<c:out value="${task.workload}"/>,
-	  			isPublic:<c:out value="${task.isPublic}"/>};
-	  	</script>
-	 	 </c:forEach>
-	  	</select>
-  	
-  	
-  	
-  
+	
+	<table class="table table-striped" id="tasks">
+  			<tr>
+	  			<th>
+	  			<acme:message code="manager.workplan.list.label.tasks"/>
+	  			<span style="font-weight: normal;">
+		  	(<acme:message code="manager.workplan.list.label.public"/>: <span id=publica>0</span>, 
+		  	<acme:message code="manager.workplan.list.label.private"/>: <span id=privada>0</span>)
+		  	</span>
+	  			</th>
+  			</tr>
+		  	<c:forEach items="${managerTasks}" var="task">
+			  	<c:if test="${fn:contains(tasks, task)}">
+		  			<script>selectarray.push(<c:out value="${task.id}"/>)</script>
+		  		</c:if>
+		  		
+			  	<tr>
+			  		<td>
+			  		<input class="taskselector" type="checkbox" name="newTasks" value=<c:out value="${task.id}"/>>
+			    	<a href="./manager/task/show?id=<c:out value="${task.id}"/>">
+			    	<c:out value="${task.title}"/></a>
+			    	</td>
+			    </tr>
+			    
+			    
+			    <script>
+				  	var start = moment('<c:out value="${task.executionStart}"/>',"YYYY-MM-DD HH:mm:ss.s");
+				  	var end = moment('<c:out value="${task.executionEnd}"/>',"YYYY-MM-DD HH:mm:ss.s");
+				  	
+				  	taskdict[<c:out value="${task.id}"/>]={executionStart:start,
+				  			executionEnd:end,
+				  			workload:<c:out value="${task.workload}"/>,
+				  			isPublic:<c:out value="${task.isPublic}"/>};
+			  	</script>
+		 	</c:forEach>
+	  	</table>
+
 	<acme:form-submit test="${command == 'create'}" code="manager.workplan.create.label.create" action="/manager/workplan/create"/>
 	<acme:form-submit test="${command == 'show' || command == 'update'}" code="manager.workplan.form.button.update" action="/manager/workplan/update"/>
 	<acme:form-submit test="${command == 'show' || command == 'update'}" code="manager.workplan.form.button.delete" action="/manager/workplan/delete"/>
@@ -73,18 +81,16 @@ else
 	element = document.getElementById("tasks")
 	
 element.size = element.length;
-$("select").val(selectarray);
+$('.taskselector').val(selectarray);
 
 
-$('option').mousedown(function(e) {
-    e.preventDefault();
-    $(this).prop('selected', !$(this).prop('selected'));
+$('.taskselector').mousedown(function(e) {
     
-    if(this.selected){
-    	selectarray.push(parseInt(this.value));
+    if(this.checked){
+    	selectarray.splice(selectarray.indexOf(parseInt(this.value)), 1); 
     }
     else{
-    	selectarray.splice(selectarray.indexOf(parseInt(this.value)), 1);  	
+    	selectarray.push(parseInt(this.value));	
     }
     dateSuggestions(taskdict,selectarray,language);
     workloadSum(taskdict,selectarray,language);
