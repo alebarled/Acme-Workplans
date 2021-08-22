@@ -1,6 +1,7 @@
 package acme.features.anonymous.workplans;
 
 import java.util.Collection;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,7 +36,23 @@ public class AnonymousWorkplanListService implements AbstractListService<Anonymo
 
 	@Override
 	public Collection<Workplan> findMany(final Request<Workplan> request) {
-		return this.repository.findMany();
+		return this.repository.findMany().stream().sorted(
+			(x1,x2)-> {
+				if(x1.getPeriod()<x2.getPeriod()) {
+					return 1;
+				}else if(x1.getPeriod()>x2.getPeriod()) {
+					return -1;
+				}else {
+					if(x1.getWorkload()<x2.getWorkload()) {
+						return 1;
+					}else if(x1.getWorkload()>x2.getWorkload()) {
+						return -1;
+					}else {
+						return 0;
+					}
+				}
+			}
+			).collect(Collectors.toList());
 	}
 
 }

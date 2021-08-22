@@ -18,7 +18,12 @@ public class AnonymousWorkplanShowService implements AbstractShowService<Anonymo
 	@Override
 	public boolean authorise(final Request<Workplan> request) {
 		assert request !=null;
-		return true;
+		final Workplan workplan = this.repository.findValidWorkplanById(request.getModel().getInteger("id"));
+		
+		if(workplan!=null)
+			return true;
+		else
+			return false;
 	}
 
 	@Override

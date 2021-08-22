@@ -16,4 +16,7 @@ public interface AnonymousWorkplanRepository extends AbstractRepository{
 	
 	@Query("select w from Workplan w where w.id = ?1")
 	Workplan findOneWorkplanById(int id);
+	
+	@Query("select w from Workplan w where w.executionEnd>=current_timestamp and w.isPublic = 1 and w.id = ?1")
+	Workplan findValidWorkplanById(int id);
 }
