@@ -73,7 +73,7 @@ document.getElementsByTagName('label')[3].innerHTML = document.getElementsByTagN
 dateSuggestions(taskdict,selectarray,language);
 workloadSum(taskdict,selectarray,language);
 taskCount(taskdict,selectarray);
-
+console.log(taskdict);
 var element;
 if(document.getElementById("newTasks")!=null)
 	element = document.getElementById("newTasks");

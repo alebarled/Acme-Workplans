@@ -2,6 +2,7 @@ package acme.entities.workplans;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -62,7 +63,7 @@ public class Workplan extends DomainEntity{
 	
 	@Valid
 	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.REFRESH)
-	List<Task> tasks;
+	Set<Task> tasks;
 	
 	@NotNull
 	@Valid
@@ -93,6 +94,14 @@ public class Workplan extends DomainEntity{
 		
 		
 		return Double.parseDouble(hours+"."+stringMinutes);
+	}
+	
+	public Float getPeriod() {
+		final Double diff = (double)(this.getExecutionEnd().getTime() - this.getExecutionStart().getTime());
+		
+		final Float hours = (float) (diff/ (1000 * 60 * 60));
+		final Float minsDec = (float) (((diff / (1000 * 60)) % 60)/100);
+		return hours.intValue()+minsDec;
 	}
 	
 

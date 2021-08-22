@@ -10,7 +10,9 @@ function workloadSum(dict,values,language){
 		var splited = dict[indice].workload.toString().split("\.");
 		var h = splited[0];
 		var m = splited[1];
-		if(m.length==1)
+		if(m == undefined)
+			m = '00';
+		else if(m.length==1)
 			m = m + '0';
 		hours += parseInt(h);
 		mins += parseInt(m);
