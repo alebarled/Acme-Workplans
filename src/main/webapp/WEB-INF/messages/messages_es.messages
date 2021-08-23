@@ -25,3 +25,5 @@ default.error.not-authorised = Acceso no autorizado
 
 default.dashboard.task = tareas
 default.dashboard.workloadPeriod = horas.minutos
+
+default.dashboard.workplan = planes

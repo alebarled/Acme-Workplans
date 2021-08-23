@@ -28,3 +28,5 @@ default.global.message.error = Operation completed with errors
 
 default.dashboard.task = tasks
 default.dashboard.workloadPeriod = hours.minutes
+
+default.dashboard.workplan = workplans

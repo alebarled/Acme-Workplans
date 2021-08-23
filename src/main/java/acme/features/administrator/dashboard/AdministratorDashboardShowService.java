@@ -3,6 +3,7 @@ package acme.features.administrator.dashboard;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -13,6 +14,7 @@ import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.stereotype.Service;
 
 import acme.entities.tasks.Task;
+import acme.entities.workplans.Workplan;
 import acme.forms.Dashboard;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
@@ -41,11 +43,17 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-		
+		model.setAttribute("totalworkplans", this.repository.findAllWorkplans().size());
+		model.setAttribute("publicworkplans", this.repository.getNumberOfPublicWorkplans());
+		model.setAttribute("privateworkplans", this.repository.getNumberOfPrivateWorkplans());
 		request.unbind(entity, model, "numberOfPublicTasks", "numberOfPrivateTasks", 
 			"numberOfFinishedTasks", "numberOfNonFinishedTasks", 
 			"avarageWorkloads", "minimumWorkloads", "maximumWorkloads", "deviationWorkload",
-			"avarageExecPeriod", "minimumExecPeriod", "maximumExecPeriod", "deviationExecPeriod");
+			"avarageExecPeriod", "minimumExecPeriod", "maximumExecPeriod", "deviationExecPeriod",
+			"numberOfPublicWorkplans", "numberOfPrivateWorkplans", "numberOfFinishedWorkplans", 
+			"numberOfNonFinishedWorkplans", "avarageWorkloadsWorkplan", "minimumWorkloadsWorkplan",
+			"maximumWorkloadsWorkplan", "deviationWorkloadWorkplan", "avarageExecPeriodWorkplan",
+			"minimumExecPeriodWorkplan", "maximumExecPeriodWorkplan", "deviationExecPeriodWorkplan");
 		
 	}
 
@@ -247,6 +255,180 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 			final Float fin = this.datesTransformationBackward(final1);
 			return AdministratorDashboardShowService.round(fin,2);
 		}
+		
+		
+		//----- workloads functions -------------------------------------------------------------------------
+		
+		
+		public Integer getNumberOfPublicWorkplans(final Request<Dashboard> request) {
+			assert request!=null;
+			
+			return this.repository.getNumberOfPublicWorkplans();
+		}
+
+		public Integer getNumberOfPrivateWorkplans(final Request<Dashboard> request) {
+			assert request!=null;
+			
+			return this.repository.getNumberOfPrivateWorkplans();
+		}
+		
+		
+		//----------------------------------------------------------------------------------------------------------------------------
+			public Integer getNumberOfFinishedWorkplans(final Request<Dashboard> request) {
+				assert request!=null;
+				final ZoneId defaultZoneId = ZoneId.systemDefault();
+					
+				final LocalDate fechauno = LocalDate.of(LocalDate.now().getYear(), LocalDate.now().getMonthValue(), LocalDate.now().getDayOfMonth());
+				final Date date = Date.from(fechauno.atStartOfDay(defaultZoneId).toInstant());
+					
+				return this.repository.getNumberOfFinishedWorkplans(date);
+			}
+
+			public Integer getNumberOfNonFinishedWorkplans(final Request<Dashboard> request) {
+				assert request!=null;
+
+				final ZoneId defaultZoneId = ZoneId.systemDefault();
+					
+				final LocalDate fechauno = LocalDate.of(LocalDate.now().getYear(), LocalDate.now().getMonthValue(), LocalDate.now().getDayOfMonth());
+				final Date date = Date.from(fechauno.atStartOfDay(defaultZoneId).toInstant());
+					
+				return this.repository.getNumberOfNonFinishedWorkplans(date);
+			}
+			
+			
+			//----------------------------------------------------------------------------------------------------------------------------
+			public Float getAvarageWorkloadsWorkplan(final Request<Dashboard> request) {
+				assert request!=null;
+				if(this.repository.getNumberOfPrivateWorkplans() + this.repository.getNumberOfPublicWorkplans() == 0) return null;
+				
+				Float total = 0f;
+				
+				final List<Workplan> lsT = this.repository.findAllWorkplans().stream().collect(Collectors.toList());
+				for (int i = 0; i < lsT.size(); i++) {			
+					final Float horasMin = this.datesTransformationForward((float)(double)lsT.get(i).getWorkload());
+					
+					total += horasMin;
+				}
+				
+				final Float avg = total / lsT.size();
+				return AdministratorDashboardShowService.round(this.datesTransformationBackward(avg),2);
+			}
+
+			public Float getMinimumWorkloadsWorkplan(final Request<Dashboard> request) {
+				assert request!=null;
+				
+				return (float)(double)this.repository.findAllWorkplans().stream().map(x->x.getWorkload()).min(Comparator.naturalOrder()).orElse(null);
+				
+			}
+
+			public Float getMaximumWorkloadsWorkplan(final Request<Dashboard> request) {
+				assert request!=null;
+				return (float)(double)this.repository.findAllWorkplans().stream().map(x->x.getWorkload()).max(Comparator.naturalOrder()).orElse(null);
+
+				
+			}
+
+			public Float getDeviationWorkloadsWorkplan(final Request<Dashboard> request) {
+				assert request!=null;
+				if(this.repository.getNumberOfPrivateWorkplans() + this.repository.getNumberOfPublicWorkplans() == 0) return null;
+				
+				final Float average = this.getAvarageWorkloadsWorkplan(request);
+				
+				Float res =  0f;
+				
+				final List<Workplan> lsT = this.repository.findAllWorkplans().stream().collect(Collectors.toList());
+				for (int i = 0; i < lsT.size(); i++) {			
+					final Float diff = this.datesTransformationForward((float)(double)lsT.get(i).getWorkload());
+					
+					final Float individualDeviation = Math.abs(diff-average)*Math.abs(diff-average);
+					res+=individualDeviation;
+				}
+				res = res/lsT.size();
+				final double sqrt = Math.sqrt(Double.parseDouble(res.toString()));
+				final Float final1 = Float.parseFloat(sqrt + "");
+				final Float fin = this.datesTransformationBackward(final1);
+				return AdministratorDashboardShowService.round(fin,2);
+			}
+			
+
+			
+			//----------------------------------------------------------------------------------------------------------------------------
+			public Float getAvarageExecPeriodWorkplan(final Request<Dashboard> request) {
+				assert request!=null;
+				if(this.repository.getNumberOfPrivateWorkplans() + this.repository.getNumberOfPublicWorkplans() == 0) return null;
+				
+				Float total =  0f;
+				
+				final List<Workplan> lsT = this.repository.findAllWorkplans().stream().collect(Collectors.toList());
+				for (int i = 0; i < lsT.size(); i++) {
+					final Float horasMin = this.datesTransformationForward(lsT.get(i).getPeriod());
+					
+					total += horasMin;
+				}
+				
+
+				final Float avg = total/lsT.size();
+				return AdministratorDashboardShowService.round(this.datesTransformationBackward(avg),2);
+			}
+
+			public Float getMinimumExecPeriodWorkplan(final Request<Dashboard> request) {
+				assert request!=null;
+				if(this.repository.getNumberOfPrivateWorkplans() + this.repository.getNumberOfPublicWorkplans() == 0) return null;
+				
+				Float min =  1000000000000f;
+				
+				final List<Workplan> lsT = this.repository.findAllWorkplans().stream().collect(Collectors.toList());
+				for (int i = 0; i < lsT.size(); i++) {
+					final Float diff = lsT.get(i).getPeriod();
+					if (diff <= min) {
+						min = diff;
+					}
+				}
+					
+				return AdministratorDashboardShowService.round(min,2);
+				
+			}
+
+			public Float getMaximumExecPeriodWorkplan(final Request<Dashboard> request) {
+				assert request!=null;
+				if(this.repository.getNumberOfPrivateWorkplans() + this.repository.getNumberOfPublicWorkplans() == 0) return null;
+				
+				Float max =  0f;
+				
+				final List<Workplan> lsT = this.repository.findAllWorkplans().stream().collect(Collectors.toList());
+				for (int i = 0; i < lsT.size(); i++) {
+					final Float diff = lsT.get(i).getPeriod();
+					if (diff >= max) {
+						max = diff;
+					}
+				}
+				
+				return AdministratorDashboardShowService.round(max,2);
+				
+				
+			}
+
+			public Float getDeviationExecPeriodWorkplan(final Request<Dashboard> request) {
+				if(this.repository.getNumberOfPrivateWorkplans() + this.repository.getNumberOfPublicWorkplans() == 0) return null;
+				
+				final Float average = this.getAvarageExecPeriodWorkplan(request);
+				
+				Float res =  0f;
+
+				final List<Workplan> lsT = this.repository.findAllWorkplans().stream().collect(Collectors.toList());
+				for (int i = 0; i < lsT.size(); i++) {
+					final Float diff = this.datesTransformationForward(lsT.get(i).getPeriod());
+					
+					final Float individualDeviation = Math.abs(diff-average)*Math.abs(diff-average);
+					res+=individualDeviation;
+				}
+				res = res/lsT.size();
+				final double sqrt = Math.sqrt(Double.parseDouble(res.toString()));
+				final Float final1 = Float.parseFloat(sqrt + "");
+				final Float fin = this.datesTransformationBackward(final1);
+				return AdministratorDashboardShowService.round(fin,2);
+			}
+			
 
 		
 
@@ -271,6 +453,22 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 			result.setMaximumExecPeriod(this.getMaximumExecPeriod(request) !=null?this.getMaximumExecPeriod(request) + " " + this.messageSource.getMessage("default.dashboard.workloadPeriod", null, LocaleContextHolder.getLocale()):"-");
 			result.setAvarageExecPeriod(this.getAvarageExecPeriod(request) !=null?this.getAvarageExecPeriod(request) + " " + this.messageSource.getMessage("default.dashboard.workloadPeriod", null, LocaleContextHolder.getLocale()):"-");
 			result.setDeviationExecPeriod(this.getDeviationExecPeriod(request) !=null?this.getDeviationExecPeriod(request) + " " + this.messageSource.getMessage("default.dashboard.workloadPeriod", null, LocaleContextHolder.getLocale()):"-");
+			
+			result.setNumberOfPublicWorkplans(this.getNumberOfPublicWorkplans(request) + " " + this.messageSource.getMessage("default.dashboard.workplan", null, LocaleContextHolder.getLocale()));
+			result.setNumberOfPrivateWorkplans(this.getNumberOfPrivateWorkplans(request) + " " + this.messageSource.getMessage("default.dashboard.workplan", null, LocaleContextHolder.getLocale()));
+			
+			result.setNumberOfNonFinishedWorkplans(this.getNumberOfNonFinishedWorkplans(request) + " " + this.messageSource.getMessage("default.dashboard.workplan", null, LocaleContextHolder.getLocale()));
+			result.setNumberOfFinishedWorkplans(this.getNumberOfFinishedWorkplans(request) + " " + this.messageSource.getMessage("default.dashboard.workplan", null, LocaleContextHolder.getLocale()));
+			
+			result.setMinimumWorkloadsWorkplan(this.getMinimumWorkloadsWorkplan(request) !=null?this.getMinimumWorkloadsWorkplan(request) + " " + this.messageSource.getMessage("default.dashboard.workloadPeriod", null, LocaleContextHolder.getLocale()):"-");
+			result.setMaximumWorkloadsWorkplan(this.getMaximumWorkloadsWorkplan(request) !=null?this.getMaximumWorkloadsWorkplan(request) + " " + this.messageSource.getMessage("default.dashboard.workloadPeriod", null, LocaleContextHolder.getLocale()):"-");
+			result.setAvarageWorkloadsWorkplan(this.getAvarageWorkloadsWorkplan(request) !=null?this.getAvarageWorkloadsWorkplan(request) + " " + this.messageSource.getMessage("default.dashboard.workloadPeriod", null, LocaleContextHolder.getLocale()):"-");
+			result.setDeviationWorkloadWorkplan(this.getDeviationWorkloadsWorkplan(request) !=null?this.getDeviationWorkloadsWorkplan(request) + " " + this.messageSource.getMessage("default.dashboard.workloadPeriod", null, LocaleContextHolder.getLocale()):"-");
+			
+			result.setMinimumExecPeriodWorkplan(this.getMinimumExecPeriodWorkplan(request) !=null?this.getMinimumExecPeriodWorkplan(request) + " " + this.messageSource.getMessage("default.dashboard.workloadPeriod", null, LocaleContextHolder.getLocale()):"-");
+			result.setMaximumExecPeriodWorkplan(this.getMaximumExecPeriodWorkplan(request) !=null?this.getMaximumExecPeriodWorkplan(request) + " " + this.messageSource.getMessage("default.dashboard.workloadPeriod", null, LocaleContextHolder.getLocale()):"-");
+			result.setAvarageExecPeriodWorkplan(this.getAvarageExecPeriodWorkplan(request) !=null?this.getAvarageExecPeriodWorkplan(request) + " " + this.messageSource.getMessage("default.dashboard.workloadPeriod", null, LocaleContextHolder.getLocale()):"-");
+			result.setDeviationExecPeriodWorkplan(this.getDeviationExecPeriodWorkplan(request) !=null?this.getDeviationExecPeriodWorkplan(request) + " " + this.messageSource.getMessage("default.dashboard.workloadPeriod", null, LocaleContextHolder.getLocale()):"-");
 			
 			return result;
 		}
