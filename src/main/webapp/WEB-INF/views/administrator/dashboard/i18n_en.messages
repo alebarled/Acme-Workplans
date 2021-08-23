@@ -11,11 +11,21 @@ administrator.taskstatistics.show.label.minimumExecPeriod = Minimum Execution Pe
 administrator.taskstatistics.show.label.maximumExecPeriod = Maximum Execution Period
 administrator.taskstatistics.show.label.deviationExecPeriod =  Execution Period Deviation
 
+administrator.taskstatistics.show.label.numberOfPublicWorkplans = Public Workplans
+administrator.taskstatistics.show.label.numberOfPrivateWorkplans = Private Workplans
+administrator.taskstatistics.show.label.numberOfFinishedWorkplans = Finished Workplans
+administrator.taskstatistics.show.label.numberOfNonFinishedWorkplans = Non-Finished Workplans
+
+
+
 administrator.taskstatistics.show.title = Task Statistics Table
+administrator.taskstatistics.show.title.workplan = Workplan Statistics Table
 
 
 administrator.taskstatistics.show.tasksdashboard = Tasks Dashboard
 administrator.taskstatistics.show.workloaddashboard = Workload Dashboard
 administrator.taskstatistics.show.excperioddashboard = Execution Period Dashboard
+
+administrator.taskstatistics.show.workplan = Workplans
 
 administrator.taskstatistics.form.button.return = Return

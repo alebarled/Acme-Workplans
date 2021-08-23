@@ -57,6 +57,45 @@ public class Dashboard implements Serializable {
 
 	String deviationExecPeriod;
 	
+	
+	//------------- WORKPLAN DATA ------------------------------------------------------------
+	
+	
+	String numberOfPublicWorkplans;
+	
+
+	String numberOfPrivateWorkplans;
+	
+
+	String numberOfFinishedWorkplans;
+	
+
+	String numberOfNonFinishedWorkplans;
+	
+	
+	String avarageWorkloadsWorkplan;
+	
+
+	String minimumWorkloadsWorkplan;
+	
+
+	String maximumWorkloadsWorkplan;
+	
+
+	String deviationWorkloadWorkplan;
+	
+
+	String avarageExecPeriodWorkplan;
+	
+
+	String minimumExecPeriodWorkplan;
+	
+
+	String maximumExecPeriodWorkplan;
+	
+
+	String deviationExecPeriodWorkplan;
+	
 
 }
 	

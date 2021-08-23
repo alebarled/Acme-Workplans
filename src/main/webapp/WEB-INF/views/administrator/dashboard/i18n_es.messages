@@ -11,11 +11,19 @@ administrator.taskstatistics.show.label.minimumExecPeriod = Periodo de Ejecució
 administrator.taskstatistics.show.label.maximumExecPeriod = Periodo de Ejecución Máximo
 administrator.taskstatistics.show.label.deviationExecPeriod = Desviación del periodo de ejecución
 
+administrator.taskstatistics.show.label.numberOfPublicWorkplans = Planes Públicos
+administrator.taskstatistics.show.label.numberOfPrivateWorkplans = Planes Privados
+administrator.taskstatistics.show.label.numberOfFinishedWorkplans = Planes Acabados
+administrator.taskstatistics.show.label.numberOfNonFinishedWorkplans = Planes Sin Acabar
+
 administrator.taskstatistics.show.title = Tabla de Estadísticas de Tareas
+administrator.taskstatistics.show.title.workplan = Tabla de Estadísticas de Planes
 
 
 administrator.taskstatistics.show.tasksdashboard = Estadísticas de tareas
 administrator.taskstatistics.show.workloaddashboard = Estadísticas de carga de trabajo
 administrator.taskstatistics.show.excperioddashboard = Estadísticas de periodo de ejecución
+
+administrator.taskstatistics.show.workplan = Planes de trabajo
 
 administrator.taskstatistics.form.button.return = Volver
