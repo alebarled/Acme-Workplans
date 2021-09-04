@@ -16,7 +16,7 @@ master.banner.background = #b4a5ff
 
 master.welcome.title = ¡Bienvenidos!
 master.welcome.text = \
-	Bienvenidos a Acme Planner!  Nunca antes ha sido tan sencillo organizar y desarrollar un proyecto.
+	Bienvenidos a Acme Workplans!  Nunca antes ha sido tan sencillo organizar y desarrollar un proyecto.
 
 # master.menu #################################################################
 
@@ -106,9 +106,9 @@ master.footer.label.spanish = Español
 
 master.company.title = La compañía
 master.company.text = \
-	Acme Planner, Inc. es un proyecto desarrollado y puesto en marcha por los alumnos del grupo 9 \
+	Acme Workplans, Inc. es un proyecto desarrollado y puesto en marcha por los alumnos del grupo 9 \
 	de la asignatura de Diseño y Pruebas 2 de 3º la carrera ingeniería del software, de la Universidad de Sevilla.
-master.company.name = Acme Planner, Inc.
+master.company.name = Acme Workplans, Inc.
 master.company.address = Sin lugar presencial
 master.company.phone = Sin teléfono de contacto
 master.company.email = Sin correo de contacto

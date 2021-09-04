@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,7 +42,7 @@ public class ManagerWorkplanCreateService implements AbstractCreateService<Manag
 			final Workplan wl = new Workplan();
 			request.bind(wl, errors);
 			
-			final List<String> newTasks = wl.getNewTasks();
+			final Set<String> newTasks = wl.getNewTasks();
 			final List<String> managerTasksIds = this.taskRepository.findManyByManagerId(request.getPrincipal().getActiveRoleId())
 			.stream()
 			.map(x->String.valueOf(x.getId()))
@@ -93,7 +94,7 @@ public class ManagerWorkplanCreateService implements AbstractCreateService<Manag
 		if(entity.getNewTasks()!=null) {
 			entity.setTasks(entity.getNewTasks().stream()
 				.map(x->this.taskRepository.findOneTaskById(Integer.parseInt(x)))
-				.collect(Collectors.toSet()));
+				.collect(Collectors.toList()));
 		}
 		
 		/// Private tasks validate
@@ -142,7 +143,7 @@ public class ManagerWorkplanCreateService implements AbstractCreateService<Manag
 		if(entity.getNewTasks()!=null) {
 			entity.setTasks(entity.getNewTasks().stream()
 				.map(x->this.taskRepository.findOneTaskById(Integer.parseInt(x)))
-				.collect(Collectors.toSet()));
+				.collect(Collectors.toList()));
 		}
 		
 		this.repository.save(entity);

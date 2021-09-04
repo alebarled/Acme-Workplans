@@ -24,8 +24,14 @@
 		  	<c:forEach items="${tasks}" var="task">
 			  	<tr>
 			  		<td>
-			    	<a href="./anonymous/task/show?id=<c:out value="${task.id}"/>">
-			    	<c:out value="${task.title}"/></a>
+			  		<c:if test="${task.finished == false}">
+			  		<a href="./anonymous/task/show?id=<c:out value="${task.id}"/>">
+			    	<c:out value="${task.title}"/>
+			    	</a></c:if>
+			    	
+			    	<c:if test="${task.finished}">
+			    	<c:out value="${task.title}"/>
+			    	</c:if>
 			    	</td>
 			    </tr>
 		 	</c:forEach>

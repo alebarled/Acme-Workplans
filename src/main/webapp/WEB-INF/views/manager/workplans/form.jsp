@@ -37,8 +37,8 @@ var taskdict = {};
 		  		
 			  	<tr>
 			  		<td>
-			  		<input class="taskselector" type="checkbox" name="newTasks" value=<c:out value="${task.id}"/>>
-			    	<a href="./manager/task/show?id=<c:out value="${task.id}"/>">
+			  		<input class="taskselector" id="taskselect" type="checkbox" name="newTasks" autocomplete="off" value=<c:out value="${task.id}"/>>
+			    	<a href="./manager/task/show?id=<c:out value="${task.id}"/>" target="_blank">
 			    	<c:out value="${task.title}"/></a>
 			    	</td>
 			    </tr>
@@ -73,10 +73,10 @@ document.getElementsByTagName('label')[3].innerHTML = document.getElementsByTagN
 dateSuggestions(taskdict,selectarray,language);
 workloadSum(taskdict,selectarray,language);
 taskCount(taskdict,selectarray);
-console.log(taskdict);
+
 var element;
 if(document.getElementById("newTasks")!=null)
-	element = document.getElementById("newTasks");
+	element = document.getElementById("newTasks");	
 else
 	element = document.getElementById("tasks")
 	
@@ -85,7 +85,6 @@ $('.taskselector').val(selectarray);
 
 
 $('.taskselector').mousedown(function(e) {
-    
     if(this.checked){
     	selectarray.splice(selectarray.indexOf(parseInt(this.value)), 1); 
     }
