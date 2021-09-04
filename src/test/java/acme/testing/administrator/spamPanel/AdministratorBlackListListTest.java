@@ -5,9 +5,9 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
-import acme.testing.AcmePlannerTest;
+import acme.testing.AcmeWorkplansTest;
 
-public class AdministratorBlackListListTest extends AcmePlannerTest{
+public class AdministratorBlackListListTest extends AcmeWorkplansTest{
 	
 	// Test cases -------------------------------------------------------------
 	

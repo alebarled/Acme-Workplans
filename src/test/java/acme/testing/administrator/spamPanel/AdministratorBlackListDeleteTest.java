@@ -5,9 +5,9 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
-import acme.testing.AcmePlannerTest;
+import acme.testing.AcmeWorkplansTest;
 
-public class AdministratorBlackListDeleteTest extends AcmePlannerTest{
+public class AdministratorBlackListDeleteTest extends AcmeWorkplansTest{
 
 	/*
 	 * A test that checks the "Delete a spam word" functionality, 
@@ -20,13 +20,13 @@ public class AdministratorBlackListDeleteTest extends AcmePlannerTest{
 	public void deletePositive(final String word) {
 		super.signIn("administrator", "administrator");
 		
-		super.navigate("/administrator/spamconfig/show", "id=44");
+		super.navigate("/administrator/spamconfig/show", "id=49");
 		
 		super.checkInputBoxHasValue("word", word);
 		
 		super.clickOnSubmitButton("Delete");
 		
-		super.navigate("/administrator/spamconfig/show", "id=44");
+		super.navigate("/administrator/spamconfig/show", "id=49");
 		
 		super.checkErrorsExist();
 		super.signOut();
@@ -34,12 +34,12 @@ public class AdministratorBlackListDeleteTest extends AcmePlannerTest{
 	}
 	
 	/*
-	 * This test checks that a anonymous user cannot delete a word that does not exist.
+	 * This test checks that a anonymous user cannot delete a word.
 	 */
 	@Test
 	@Order(20)
 	public void deleteNegative() {
-		super.navigate("/administrator/spamconfig/show", "id=45");
+		super.navigate("/administrator/spamconfig/delete", "id=53");
 		super.checkPanicExists();
 	}
 	

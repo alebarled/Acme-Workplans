@@ -1,4 +1,4 @@
 index,title,executionStart,executionEnd,workload,description,link
 0,Create TaskService,2021/02/13 19:39,2021/05/14 19:39,50.5,Create service of task entity,https://github.com/task2
-1,Create TaskRepository,2020/03/13 19:39,2020/03/14 19:39,22.5,Create repository of task entity,https://github.com/task4
-2,Create TaskView,2020/02/13 19:39,2020/02/14 19:39,21.3,Create view of task entity,https://github.com/task3
+1,Diseñar nueva web,2021/05/01 12:00,2021/06/22 20:00,50.0,Montar nueva web para el colegio Poetas Andaluces de Montequinto,https://github.com/task1
+2,Entidad Plan,2021/05/01 19:39,2021/07/01 19:39,30.0,Crear la entidad Plan,https://github.com/task1

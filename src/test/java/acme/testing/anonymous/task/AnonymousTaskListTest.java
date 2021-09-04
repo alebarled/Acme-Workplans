@@ -9,9 +9,9 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-import acme.testing.AcmePlannerTest;
+import acme.testing.AcmeWorkplansTest;
 
-public class AnonymousTaskListTest extends AcmePlannerTest{
+public class AnonymousTaskListTest extends AcmeWorkplansTest{
 	
 	// Test cases -------------------------------------------------------------
 	/* 

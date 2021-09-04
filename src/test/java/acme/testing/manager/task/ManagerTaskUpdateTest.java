@@ -5,9 +5,9 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.openqa.selenium.By;
 
-import acme.testing.AcmePlannerTest;
+import acme.testing.AcmeWorkplansTest;
 
-public class ManagerTaskUpdateTest extends AcmePlannerTest{
+public class ManagerTaskUpdateTest extends AcmeWorkplansTest{
 	
 	// Test cases -------------------------------------------------------------
 	
@@ -78,6 +78,7 @@ public class ManagerTaskUpdateTest extends AcmePlannerTest{
 	 *  - case 5: Error would rise in workload because value must be between 0 and 59 (minutes).
 	 *  
 	 *  - case 6: Error would rise in title and description.
+	 *   		  Error would rise in workload because value must be less than 99.59.
 	 */
 	
 	@ParameterizedTest
@@ -151,6 +152,7 @@ public class ManagerTaskUpdateTest extends AcmePlannerTest{
 		
 		case 6:
 			super.checkErrorsExist("title");
+			super.checkErrorsExist("workload");
 			assert super.exists(locator) : String.format("No errors found in input box '%s'", "description");
 			break;
 		}

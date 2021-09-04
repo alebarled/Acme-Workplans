@@ -1,0 +1,10 @@
+timestamp,test-class,test-method,time,description,result
+2021-09-04 19:01:20.473,acme.testing.anonymous.shout.AnonymousShoutCreateTest,createPositive,6332,"[1] recordIndex=0, author=David, text=a, info=null",Expected value 'a' in attribute 2 of record 6, but found 'Tarea Betis!'
+2021-09-04 19:01:25.223,acme.testing.anonymous.shout.AnonymousShoutCreateTest,createPositive,4313,"[2] recordIndex=1, author=DavidDavidDavidDavidDavid, text=DavidDavidDavidDavidDavidDavidDavidDavidDavidDavidDavidDavidDavidDavidDavidDavidDavidDavidDavidDavid, info=null",Expected value 'DavidDavidDavidDavidDavid' in attribute 1 of record 7, but found 'David'
+2021-09-04 19:01:29.868,acme.testing.anonymous.shout.AnonymousShoutCreateTest,createPositive,4254,"[3] recordIndex=2, author=Alfonso, text=Es un texto de prueba, info=null",Expected value 'Alfonso' in attribute 1 of record 8, but found 'DavidDavidDavidDavidDavid'
+2021-09-04 19:01:32.085,acme.testing.anonymous.shout.AnonymousShoutCreateTest,createNegativeCases,1808,"[1] recordIndex=0, author=null, text=null, info=null",OK
+2021-09-04 19:01:34.349,acme.testing.anonymous.shout.AnonymousShoutCreateTest,createNegativeCases,1882,"[2] recordIndex=1, author=Pepe, text=ejemplo, info=null",OK
+2021-09-04 19:01:36.551,acme.testing.anonymous.shout.AnonymousShoutCreateTest,createNegativeCases,1832,"[3] recordIndex=2, author=NombreConMasDeVeinticincoCaracters, text=ejemplo, info=null",OK
+2021-09-04 19:01:38.835,acme.testing.anonymous.shout.AnonymousShoutCreateTest,createNegativeCases,1908,"[4] recordIndex=3, author=Francisco, text=12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890, info=null",OK
+2021-09-04 19:01:41.23,acme.testing.anonymous.shout.AnonymousShoutCreateTest,createNegativeCases,1984,"[5] recordIndex=4, author=Francisco, text=ejemplo, info=urlerror",OK
+2021-09-04 19:01:44.166,acme.testing.anonymous.shout.AnonymousShoutCreateTest,createNegativeCases,2559,"[6] recordIndex=5, author=Nigeria, text=Nigeria, info=http://nigeria.com",OK

@@ -122,7 +122,7 @@
 		<property name="title" value="Create TaskValidators"/>
 		<property name="executionStart" value="2017/08/13 19:39"/>
 		<property name="executionEnd" value="2018/10/13 19:39"/>
-		<property name="workload" value="100.20"/>
+		<property name="workload" value="90.20"/>
 		<property name="description" value="Create validators of task entity"/>
 		<property name="isPublic" value="false"/>
 		<property name="link" value="https://github.com/task5"/>
@@ -287,7 +287,7 @@
 		<property name="title" value="Planear el futuro de la escuela"/>
 		<property name="executionStart" value="2019/05/01 12:00"/>
 		<property name="executionEnd" value="2022/06/22 20:00"/>
-		<property name="workload" value="250"/>
+		<property name="workload" value="99"/>
 		<property name="description" value="Pensar en ello"/>
 		<property name="isPublic" value="true"/>
 		<property name="link" value="https://github.com/task20"/>
@@ -298,7 +298,7 @@
 		<property name="title" value="Try Task"/>
 		<property name="executionStart" value="2021/05/01 12:00"/>
 		<property name="executionEnd" value="2024/06/22 20:00"/>
-		<property name="workload" value="140"/>
+		<property name="workload" value="98"/>
 		<property name="description" value="try it"/>
 		<property name="isPublic" value="true"/>
 		<property name="link" value="https://github.com/task21"/>
@@ -309,7 +309,7 @@
 		<property name="title" value="Try Hard"/>
 		<property name="executionStart" value="2020/05/01 12:00"/>
 		<property name="executionEnd" value="2022/06/22 20:00"/>
-		<property name="workload" value="140"/>
+		<property name="workload" value="94"/>
 		<property name="description" value="keep trying"/>
 		<property name="isPublic" value="true"/>
 		<property name="link" value="https://github.com/task22"/>
@@ -320,7 +320,7 @@
 		<property name="title" value="General Task"/>
 		<property name="executionStart" value="2020/05/01 12:00"/>
 		<property name="executionEnd" value="2022/06/22 20:00"/>
-		<property name="workload" value="140"/>
+		<property name="workload" value="93.54"/>
 		<property name="description" value="tarea general"/>
 		<property name="isPublic" value="true"/>
 		<property name="link" value="https://github.com/task22"/>
@@ -584,7 +584,7 @@
 		<property name="title" value="Workplan test"/>
 		<property name="description" value="testing workplan features"/>
 		<property name="executionStart" value="2021/02/12 08:00"/>
-		<property name="executionEnd" value="2021/09/15 17:00"/>
+		<property name="executionEnd" value="2021/10/15 17:00"/>
 		<property name="isPublic" value="true"/>
 		<property name="manager" ref="manager01"/>
 		<property name="tasks">

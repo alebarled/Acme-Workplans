@@ -1,0 +1,13 @@
+##### WORDS TO REPLACE
+AcmePlanner,AcmeWorkplans
+acmePlanner,acmeWorkplans
+##### EXTENSIONS TO REPLACE
+java
+csv
+jsp
+messages
+properties
+xml
+#### HAPPY PASS!
+#### IF YOU FEEL GRATEFUL 
+#### JUST SAY 'THX MR AB' IN THE CHAT

@@ -17,9 +17,9 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.openqa.selenium.By;
 
-import acme.testing.AcmePlannerTest;
+import acme.testing.AcmeWorkplansTest;
 
-public class SignUpTest extends AcmePlannerTest {
+public class SignUpTest extends AcmeWorkplansTest {
 
 	/*
 	 * In this test, a new anonymous user is created by going to the "Sing up" 
