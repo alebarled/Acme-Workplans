@@ -1,5 +1,6 @@
 package acme.entities.tasks;
 
+import java.time.Instant;
 import java.util.Date;
 import java.util.List;
 
@@ -86,6 +87,11 @@ public class Task extends DomainEntity{
 	@Valid
     @ManyToMany(mappedBy = "tasks", fetch = FetchType.EAGER, cascade = CascadeType.REFRESH)
     private List<Workplan> workplans;
+	
+	public Boolean getFinished() {
+		return this.executionEnd.before(Date.from(Instant.now())) || 
+			this.executionEnd.equals(Date.from(Instant.now()));
+	}
 
 }
 	

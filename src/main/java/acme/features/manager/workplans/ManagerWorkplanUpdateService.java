@@ -1,10 +1,11 @@
 package acme.features.manager.workplans;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.Date;
-import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,7 +43,7 @@ public class ManagerWorkplanUpdateService implements AbstractUpdateService<Manag
 			final Workplan wl = new Workplan();
 			request.bind(wl, errors);
 			
-			final List<String> newTasks = wl.getNewTasks();
+			final Set<String> newTasks = wl.getNewTasks();
 			final List<String> managerTasksIds = this.taskRepository.findManyByManagerId(request.getPrincipal().getActiveRoleId())
 			.stream()
 			.map(x->String.valueOf(x.getId()))
@@ -90,9 +91,9 @@ public class ManagerWorkplanUpdateService implements AbstractUpdateService<Manag
 		if(entity.getNewTasks()!=null) {
 			entity.setTasks(entity.getNewTasks().stream()
 				.map(x->this.taskRepository.findOneTaskById(Integer.parseInt(x)))
-				.collect(Collectors.toSet()));
+				.collect(Collectors.toList()));
 		}else {
-			entity.setTasks(new HashSet<>());
+			entity.setTasks(new ArrayList<>());
 		}
 		
 		/// Private tasks validate
@@ -140,9 +141,9 @@ public class ManagerWorkplanUpdateService implements AbstractUpdateService<Manag
 		if(entity.getNewTasks()!=null) {
 			entity.setTasks(entity.getNewTasks().stream()
 				.map(x->this.taskRepository.findOneTaskById(Integer.parseInt(x)))
-				.collect(Collectors.toSet()));
+				.collect(Collectors.toList()));
 		}else {
-			entity.setTasks(new HashSet<>());
+			entity.setTasks(new ArrayList<>());
 		}
 		
 		this.repository.save(entity);

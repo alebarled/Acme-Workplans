@@ -57,13 +57,13 @@ public class Workplan extends DomainEntity{
 	Boolean isPublic;
 	
 	@Transient
-    private List<String> newTasks;
+    private Set<String> newTasks;
 	
 	// Relationships ----------------------------------------------------------
 	
 	@Valid
 	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.REFRESH)
-	Set<Task> tasks;
+	List<Task> tasks;
 	
 	@NotNull
 	@Valid
@@ -103,6 +103,8 @@ public class Workplan extends DomainEntity{
 		final Float minsDec = (float) (((diff / (1000 * 60)) % 60)/100);
 		return hours.intValue()+minsDec;
 	}
+	
+	
 	
 
 }
