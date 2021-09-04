@@ -43,7 +43,7 @@ acme.validation.range = Must be between {0} and {1}
 acme.validation.script = Script expression "{0}" must return true
 
 acme.validators.validdates = Start date must be earlier than end date
-acme.validators.validworkload = The workload value must be positive
+acme.validators.validworkload = The workload value must be a value between 0 and 99.59
 acme.validators.validworkloadperiod = The workload must fix in dates period
 acme.validators.validworkloaddecimals = Workload decimals must be between 0 and 59 (minutes)
 acme.validators.validdatesplan = Tasks's dates must fit inside plan's execution start and end

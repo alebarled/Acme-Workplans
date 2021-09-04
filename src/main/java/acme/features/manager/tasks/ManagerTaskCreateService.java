@@ -71,7 +71,7 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 		
 		if(resworkload) {
 			// actualizamos si tiene errores workload
-			resworkload = entity.getWorkload() >= 0;
+			resworkload = entity.getWorkload() >= 0 && entity.getWorkload() <= 99.59;
 			errors.state(request, resworkload, "workload", "acme.validators.validworkload");
 		}
 		
