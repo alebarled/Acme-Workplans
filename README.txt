@@ -8,7 +8,7 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-This is the Acme-Workplans project, providing shouts and tasks service for the users.
+This is the Acme-Workplans project, providing shouts, workplans and tasks service for the users.
 link: https://github.com/alebarled/Acme-Workplans
 Clevercloud:
  - username: alebarled@alum.us.es
