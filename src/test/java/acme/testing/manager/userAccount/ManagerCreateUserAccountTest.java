@@ -3,9 +3,9 @@ package acme.testing.manager.userAccount;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 
-import acme.testing.AcmePlannerTest;
+import acme.testing.AcmeWorkplansTest;
 
-public class ManagerCreateUserAccountTest extends AcmePlannerTest{
+public class ManagerCreateUserAccountTest extends AcmeWorkplansTest{
 	
 	/*
 	 * This test creates a new user and then becomes a manager.

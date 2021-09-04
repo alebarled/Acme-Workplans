@@ -5,9 +5,9 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
-import acme.testing.AcmePlannerTest;
+import acme.testing.AcmeWorkplansTest;
 
-public class AuthenticatedTaskShowTest extends AcmePlannerTest{
+public class AuthenticatedTaskShowTest extends AcmeWorkplansTest{
 	
 	// Test cases -------------------------------------------------------------
 	
@@ -37,14 +37,14 @@ public class AuthenticatedTaskShowTest extends AcmePlannerTest{
 	
 	/*
 	 * This test navigates into a private task, with authorized credentials.
-	 * An error must rise, telling the user that has no permission to show the task 18 info.
+	 * An error must rise, telling the user that has no permission to show the task 16 info.
 	 */
 	@Test
 	@Order(20)
 	public void showNegative() {
 		super.signIn("manager1", "manag3r");
 		
-		super.navigate("/authenticated/task/show", "id=26");
+		super.navigate("/authenticated/task/show", "id=16");
 		super.checkPanicExists();
 
 		

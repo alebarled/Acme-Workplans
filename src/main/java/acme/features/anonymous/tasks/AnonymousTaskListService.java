@@ -43,20 +43,11 @@ public class AnonymousTaskListService implements AbstractListService<Anonymous, 
 		Collection<Task> result;
 		result = this.repository.findMany();
 		result = result.stream().sorted(
-			(x1,x2)-> {
-				if(x1.getWorkload()<x2.getWorkload()) {
-					return 1;
-				}else if(x1.getWorkload()>x2.getWorkload()) {
-					return -1;
-				}else {
-					if(x1.getPeriod()<x2.getPeriod()) {
-						return 1;
-					}else if(x1.getPeriod()>x2.getPeriod()) {
-						return -1;
-					}else {
-						return 0;
-					}
-				}
+			(x2,x1)-> {
+				if(x1.getWorkload().compareTo(x2.getWorkload())==0) 
+					return x1.getPeriod().compareTo(x2.getPeriod());
+				else
+					return x1.getWorkload().compareTo(x2.getWorkload());
 			}
 			).collect(Collectors.toList());
 		return result;

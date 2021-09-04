@@ -1,0 +1,7 @@
+timestamp,test-class,test-method,time,description,result
+2021-09-04 19:08:23.547,acme.testing.administrator.userAccount.AdministratorListUserAccountTest,listPositive,4757,"[1] index=0, username=anonymous, name=John, surname=Doe",OK
+2021-09-04 19:08:27.854,acme.testing.administrator.userAccount.AdministratorListUserAccountTest,listPositive,3900,"[2] index=1, username=administrator, name=Administrator, surname=Acme.com",OK
+2021-09-04 19:08:32.202,acme.testing.administrator.userAccount.AdministratorListUserAccountTest,listPositive,3927,"[3] index=2, username=manager1, name=Jhon, surname=Lock",OK
+2021-09-04 19:08:36.465,acme.testing.administrator.userAccount.AdministratorListUserAccountTest,listPositive,3882,"[4] index=3, username=manager2, name=Pepe, surname=Lock",OK
+2021-09-04 19:08:37.601,acme.testing.administrator.userAccount.AdministratorListUserAccountTest,listNegative,792,"listNegative()",OK
+2021-09-04 19:09:00.176,acme.testing.administrator.userAccount.AdministratorUserAccountShowTest,updatePositive,7511,"[1] recordIndex=0, username=anonymous, name=John, surname=Doe, email=john.doe@acme.com, roles=Anonymous, status=DISABLED",OK

@@ -5,9 +5,9 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
-import acme.testing.AcmePlannerTest;
+import acme.testing.AcmeWorkplansTest;
 
-public class AdministratorBlackListCreateTest extends AcmePlannerTest{
+public class AdministratorBlackListCreateTest extends AcmeWorkplansTest{
 
 	/*
 	 * A test that checks the "Create a spam word" functionality, 

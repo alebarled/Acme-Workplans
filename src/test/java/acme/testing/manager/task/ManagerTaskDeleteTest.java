@@ -5,9 +5,9 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
-import acme.testing.AcmePlannerTest;
+import acme.testing.AcmeWorkplansTest;
 
-public class ManagerTaskDeleteTest extends AcmePlannerTest{
+public class ManagerTaskDeleteTest extends AcmeWorkplansTest{
 
 	//Test cases ------------------------------------------------------------
 	
@@ -57,7 +57,7 @@ public class ManagerTaskDeleteTest extends AcmePlannerTest{
 	@Order(20)
 	public void deleteNegative() {
 		super.signIn("manager1", "manag3r");
-		super.navigate("/manager/task/show", "id=29");
+		super.navigate("/manager/task/delete", "id=31");
 		super.checkPanicExists();
 	}
 	

@@ -1,0 +1,10 @@
+timestamp,test-class,test-method,time,description,result
+2021-09-04 19:07:13.081,acme.testing.anonymous.shout.AnonymousShoutCreateTest,createPositive,5767,"[1] recordIndex=7, author=David, text=a, info=null",OK
+2021-09-04 19:07:19.96,acme.testing.anonymous.shout.AnonymousShoutCreateTest,createPositive,6405,"[2] recordIndex=8, author=DavidDavidDavidDavidDavid, text=DavidDavidDavidDavidDavidDavidDavidDavidDavidDavidDavidDavidDavidDavidDavidDavidDavidDavidDavidDavid, info=null",OK
+2021-09-04 19:07:25.348,acme.testing.anonymous.shout.AnonymousShoutCreateTest,createPositive,5024,"[3] recordIndex=9, author=Alfonso, text=Es un texto de prueba, info=null",OK
+2021-09-04 19:07:27.497,acme.testing.anonymous.shout.AnonymousShoutCreateTest,createNegativeCases,1773,"[1] recordIndex=0, author=null, text=null, info=null",OK
+2021-09-04 19:07:29.657,acme.testing.anonymous.shout.AnonymousShoutCreateTest,createNegativeCases,1799,"[2] recordIndex=1, author=Pepe, text=ejemplo, info=null",OK
+2021-09-04 19:07:31.804,acme.testing.anonymous.shout.AnonymousShoutCreateTest,createNegativeCases,1797,"[3] recordIndex=2, author=NombreConMasDeVeinticincoCaracters, text=ejemplo, info=null",OK
+2021-09-04 19:07:34.106,acme.testing.anonymous.shout.AnonymousShoutCreateTest,createNegativeCases,1942,"[4] recordIndex=3, author=Francisco, text=12345678901234567890123456789012345678901234567890123456789012345678901234567890123456789012345678901234567890, info=null",OK
+2021-09-04 19:07:36.326,acme.testing.anonymous.shout.AnonymousShoutCreateTest,createNegativeCases,1825,"[5] recordIndex=4, author=Francisco, text=ejemplo, info=urlerror",OK
+2021-09-04 19:07:38.598,acme.testing.anonymous.shout.AnonymousShoutCreateTest,createNegativeCases,1885,"[6] recordIndex=5, author=Nigeria, text=Nigeria, info=http://nigeria.com",OK

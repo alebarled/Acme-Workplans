@@ -17,9 +17,9 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
-import acme.testing.AcmePlannerTest;
+import acme.testing.AcmeWorkplansTest;
 
-public class AnonymousShoutListTest extends AcmePlannerTest {
+public class AnonymousShoutListTest extends AcmeWorkplansTest {
 	
 	/* 
 	 * This test navigates into a shout list, as an anonymous.

@@ -5,9 +5,9 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
-import acme.testing.AcmePlannerTest;
+import acme.testing.AcmeWorkplansTest;
 
-public class AdministratorListUserAccountTest extends AcmePlannerTest{
+public class AdministratorListUserAccountTest extends AcmeWorkplansTest{
 	
 	/* 
 	 * This test signs in as administrator, navigates into the user accounts list and 

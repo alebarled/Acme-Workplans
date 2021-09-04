@@ -17,11 +17,10 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.openqa.selenium.By;
 
-import acme.testing.AcmePlannerTest;
+import acme.testing.AcmeWorkplansTest;
 
-public class AnonymousShoutCreateTest extends AcmePlannerTest {
+public class AnonymousShoutCreateTest extends AcmeWorkplansTest {
 
-	Integer last;
 	
 	/* 
 	 * This test navigates into a shout list to count the number of shouts and then go to the create form, as an anonymous  and create a new shout.
@@ -42,14 +41,10 @@ public class AnonymousShoutCreateTest extends AcmePlannerTest {
 		super.clickOnSubmitButton("Shout!");
 		
 		super.clickOnMenu("Anonymous", "Shouts List");
-		
-		if(recordIndex==0)
-			this.last = this.driver.findElements(By.tagName("tr")).size();
-		else 
-			this.last++;
-		super.checkColumnHasValue(this.last,1, author);
-		super.checkColumnHasValue(this.last,2, text);
-		super.checkColumnHasValue(this.last, 3, info);
+	
+		super.checkColumnHasValue(recordIndex,1, author);
+		super.checkColumnHasValue(recordIndex,2, text);
+		super.checkColumnHasValue(recordIndex, 3, info);
 		
 	}
 	

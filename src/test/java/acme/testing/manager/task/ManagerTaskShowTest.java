@@ -5,9 +5,9 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
-import acme.testing.AcmePlannerTest;
+import acme.testing.AcmeWorkplansTest;
 
-public class ManagerTaskShowTest extends AcmePlannerTest{
+public class ManagerTaskShowTest extends AcmeWorkplansTest{
 	
 	// Test cases -------------------------------------------------------------
 	
@@ -44,7 +44,7 @@ public class ManagerTaskShowTest extends AcmePlannerTest{
 	public void showNegative() {		
 		super.signIn("manager1", "manag3r");
 		
-		super.navigate("/manager/task/show", "id=26");
+		super.navigate("/manager/task/show", "id=31");
 		super.checkPanicExists();
 
 		

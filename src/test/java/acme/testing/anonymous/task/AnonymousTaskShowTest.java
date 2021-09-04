@@ -5,9 +5,9 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
-import acme.testing.AcmePlannerTest;
+import acme.testing.AcmeWorkplansTest;
 
-public class AnonymousTaskShowTest extends AcmePlannerTest{
+public class AnonymousTaskShowTest extends AcmeWorkplansTest{
 	
 	// Test cases -------------------------------------------------------------
 	
@@ -22,7 +22,7 @@ public class AnonymousTaskShowTest extends AcmePlannerTest{
 		final String executionStart, final String executionEnd,
 		final String workload, final String description, final String link) {		
 		
-		super.navigate("/anonymous/task/show", "id=18");
+		super.navigate("/anonymous/task/show", "id=31");
 		
 		super.checkInputBoxHasValue("title", title);
 		super.checkInputBoxHasValue("executionStart", executionStart);
@@ -35,13 +35,13 @@ public class AnonymousTaskShowTest extends AcmePlannerTest{
 	}
 	
 	/*
-	 * This test navigates into a private task, with not authorized credentials (public).
-	 * An error must rise, telling the user that has no permission to show the task 20 info.
+	 * This test navigates into a public task already finished.
+	 * An error must rise, telling the user that has no permission to show the task 23 info.
 	 */
 	@Test
 	@Order(20)
 	public void showNegative() {		
-		super.navigate("/anonymous/task/show", "id=20");
+		super.navigate("/anonymous/task/show", "id=23");
 		super.checkPanicExists();
 
 		
