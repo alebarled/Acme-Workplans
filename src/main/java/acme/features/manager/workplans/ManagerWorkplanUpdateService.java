@@ -38,6 +38,10 @@ public class ManagerWorkplanUpdateService implements AbstractUpdateService<Manag
 	public boolean authorise(final Request<Workplan> request) {
 		assert request != null;
 		
+		final Workplan workplan = this.repository.findOneWorkplanById(request.getModel().getInteger("id"));
+		if(workplan.getManager().getId() != request.getPrincipal().getActiveRoleId())
+			return false;
+		
 		if(request.getMethod().toString().equals("POST")) {
 			final Errors errors = new Errors();
 			final Workplan wl = new Workplan();

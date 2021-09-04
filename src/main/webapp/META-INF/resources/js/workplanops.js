@@ -5,8 +5,8 @@ function workloadSum(dict,values,language){
 
 	var hours = 0;
 	var mins = 0;
-	for(i=0;i<values.length;i++){
-		indice = values[i];
+	for(var i=0;i<values.length;i++){
+		var indice = values[i];
 		var splited = dict[indice].workload.toString().split("\.");
 		var h = splited[0];
 		var m = splited[1];
@@ -31,10 +31,9 @@ function workloadSum(dict,values,language){
 function taskCount(dict,values){
 	var public = 0;
 	var private = 0;
-	
-	for(i=0;i<values.length;i++){
+	for(var i=0;i<values.length;i++){
 		var indice = values[i];
-		if(dict[indice].isPublic == true)
+		if(dict[indice].isPublic==true)
 			public+=1;
 		else
 			private+=1;
@@ -71,8 +70,14 @@ function dateSuggestions(dict,values,language){
 			if(endSuggestion == null || dict[indice].executionEnd.diff(endSuggestion)>0)
 				endSuggestion = dict[indice].executionEnd.clone();	
 		}
+		var originalStart = startSuggestion.clone();
 		startSuggestion = startSuggestion.subtract(1,'days').hour(8).minute(0);
 		endSuggestion = endSuggestion.add(1,'days').hour(17).minute(0);
+
+		if(startSuggestion.format("YYYY") == "0000")
+			startSuggestion = originalStart;
+			
+		
 		document.getElementById("startSuggestion").textContent = "("+sugerencia+": "+startSuggestion.format(pattern)+")";
 		document.getElementById("endSuggestion").textContent = "("+sugerencia+": "+endSuggestion.format(pattern)+")";
 	}
