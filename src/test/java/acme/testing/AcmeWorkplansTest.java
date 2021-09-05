@@ -24,7 +24,7 @@ public abstract class AcmeWorkplansTest extends AcmeTest {
 	@Override
 	@BeforeAll
 	public void beforeAll() {
-		super.setHeadless(true);
+		super.setHeadless(false);
 		super.beforeAll();
 
 		super.setBaseCamp("http", "localhost", "8080", "/Acme-Workplans", "/master/welcome", "?language=en&debug=true&");
