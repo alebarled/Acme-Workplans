@@ -1,0 +1,6 @@
+timestamp,test-class,test-method,time,description,result
+2021-09-05 09:42:58.147,acme.testing.anonymous.workplan.AnonymousWorkplanListTest,listPositive,2274,"[1] index=0, title=Important tasks, executionStart=2020/02/12 08:00, executionEnd=2022/06/22 20:00, workload=93.10, isPublic=true",OK
+2021-09-05 09:43:00.763,acme.testing.anonymous.workplan.AnonymousWorkplanListTest,listPositive,2239,"[2] index=1, title=Prueba 1, executionStart=2021/02/12 08:00, executionEnd=2022/05/15 17:00, workload=20.50, isPublic=true",OK
+2021-09-05 09:43:03.296,acme.testing.anonymous.workplan.AnonymousWorkplanListTest,listPositive,2145,"[3] index=2, title=Prueba 3, executionStart=2021/02/12 08:00, executionEnd=2022/05/15 17:00, workload=20.50, isPublic=true",OK
+2021-09-05 09:43:04.663,acme.testing.anonymous.workplan.AnonymousWorkplanListTest,listPositiveNoWorkplanPrivate,990,"[1] index=0, title=Repository tasks, executionStart=2018/02/12 08:00, executionEnd=2022/08/31 11:12, workload=63.10, isPublic=false",OK
+2021-09-05 09:43:08.237,acme.testing.anonymous.workplan.AnonymousWorkplanListTest,listNegative,3157,"listNegative()",OK
