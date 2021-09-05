@@ -1,0 +1,9 @@
+timestamp,test-class,test-method,time,description,result
+2021-09-05 10:13:14.84,acme.testing.manager.workplan.ManagerWorkplanCreateTest,createPositive,35020,"[1] index=0, title=Prueba Workplan, description=just trying with a new workplan, executionStart=2020/02/12 08:00, executionEnd=2021/04/15 17:00, workload=95.30, isPublic=false, tasks=Create TaskController;Create TaskView;Create TaskRepository;Create TaskQueries",Unable to locate element: a
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'DESKTOP-KE4ECPD', ip: '172.26.16.1', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_281'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities {acceptInsecureCerts: true, browserName: firefox, browserVersion: 91.0.2, javascriptEnabled: true, moz:accessibilityChecks: false, moz:buildID: 20210823123856, moz:geckodriverVersion: 0.29.0, moz:headless: false, moz:processID: 56992, moz:profile: C:\Users\AB\AppData\Local\T..., moz:shutdownTimeout: 60000, moz:useNonSpecCompliantPointerOrigin: false, moz:webdriverClick: true, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, platformVersion: 10.0, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: c96fa33f-06be-4e97-9b12-afdad7f04518
+*** Element info: {Using=tag name, value=a}

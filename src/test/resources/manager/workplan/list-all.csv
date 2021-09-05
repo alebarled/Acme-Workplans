@@ -1,0 +1,4 @@
+index,title,executionStart,executionEnd,workload,isPublic
+0,Important tasks,2020/02/12 08:00,2022/06/22 20:00,93.10,true
+1,Students plan,2017/08/12 08:00,2021/06/16 17:00,113.10,false
+2,Empty plan,2017/08/12 08:00,2021/05/15 17:00,0.00,false

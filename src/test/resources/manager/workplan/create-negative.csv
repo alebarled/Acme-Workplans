@@ -1,0 +1,7 @@
+index,title,description,executionStart,executionEnd,workload,isPublic,tasks
+0, , , , ,,false,
+1,Nigerian dreams,sexo sex viagra cialis,aa,b,,false,
+2,Prueba Workplan,just trying with a new workplan,2022/02/12 08:00,2021/04/15 17:00,95.30,false,
+3,Prueba Workplan,just trying with a new workplan,2020/02/12 08:00,2021/04/15 17:00,95.30,false,Create TaskRepository;Create TaskValidators;Create TaskQueries
+4,Prueba Workplan,just trying with a new workplan,2017/08/12 08:00,2021/04/15 17:00,95.30,true,Create TaskRepository;Create TaskValidators;Create TaskQueries
+

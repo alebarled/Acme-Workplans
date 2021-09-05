@@ -1,0 +1,16 @@
+timestamp,simple-path,time
+2021-09-05 11:33:11.59,/master/welcome,493
+2021-09-05 11:33:12.082,/master/welcome,421
+2021-09-05 11:33:12.839,/master/sign-in,604
+2021-09-05 11:33:14.26,/master/welcome,619
+2021-09-05 11:33:18.822,/master/welcome,583
+2021-09-05 11:33:19.69,/master/welcome,697
+2021-09-05 11:33:20.472,/master/welcome,544
+2021-09-05 11:33:21.038,/master/welcome,502
+2021-09-05 11:33:22.595,/master/sign-in,1388
+2021-09-05 11:33:23.955,/master/welcome,611
+2021-09-05 11:33:25.386,/manager/workplan/list-mine,1159
+2021-09-05 11:33:26.254,/manager/workplan/show,610
+2021-09-05 11:33:31.137,/manager/workplan/list-mine,610
+2021-09-05 11:33:32.097,/manager/workplan/list-mine,767
+2021-09-05 11:33:32.987,/manager/workplan/show,609

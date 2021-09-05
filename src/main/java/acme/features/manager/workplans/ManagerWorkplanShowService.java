@@ -28,8 +28,10 @@ public class ManagerWorkplanShowService implements AbstractShowService<Manager, 
 	public boolean authorise(final Request<Workplan> request) {
 		assert request !=null;
 		final Workplan workplan = this.repository.findOneWorkplanById(request.getModel().getInteger("id"));
-		
-		return workplan.getManager().getId() == request.getPrincipal().getActiveRoleId();
+		if(workplan==null)
+			return false;
+		else
+			return workplan.getManager().getId() == request.getPrincipal().getActiveRoleId();
 	}
 
 	@Override
