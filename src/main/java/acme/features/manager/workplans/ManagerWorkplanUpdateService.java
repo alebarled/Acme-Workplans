@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -47,7 +48,10 @@ public class ManagerWorkplanUpdateService implements AbstractUpdateService<Manag
 			final Workplan wl = new Workplan();
 			request.bind(wl, errors);
 			
-			final Set<String> newTasks = wl.getNewTasks();
+			Set<String> newTasks = wl.getNewTasks();
+			if(newTasks==null)
+				newTasks = new HashSet<>();
+			
 			final List<String> managerTasksIds = this.taskRepository.findManyByManagerId(request.getPrincipal().getActiveRoleId())
 			.stream()
 			.map(x->String.valueOf(x.getId()))

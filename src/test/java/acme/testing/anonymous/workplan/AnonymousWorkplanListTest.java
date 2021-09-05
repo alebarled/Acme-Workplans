@@ -12,6 +12,7 @@ import org.openqa.selenium.WebElement;
 import acme.testing.AcmeWorkplansTest;
 
 public class AnonymousWorkplanListTest extends AcmeWorkplansTest{
+	
 	// Test cases -------------------------------------------------------------
 	/* 
 	 * This test signs in as an anonymous, navigates into the workplans list and tries reading some of them.

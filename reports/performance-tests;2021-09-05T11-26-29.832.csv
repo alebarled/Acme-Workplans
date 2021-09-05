@@ -1,0 +1,2 @@
+timestamp,test-class,test-method,time,description,result
+2021-09-05 11:26:58.218,acme.testing.manager.workplan.ManagerWorkplanUpdateTest,updatePositive,11715,"[1] index=0, title=Prueba Workplan, description=just trying with a new workplan, executionStart=2020/02/12 08:00, executionEnd=2021/04/15 17:00, workload=95.30, isPublic=false, tasks=Create TaskController;Create TaskView;Create TaskRepository;Create TaskQueries",Expected value 'Prueba Workplan' in input box 'title', but 'Important tasks' was found

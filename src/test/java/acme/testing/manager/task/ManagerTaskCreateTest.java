@@ -57,7 +57,7 @@ public class ManagerTaskCreateTest extends AcmeWorkplansTest{
 	}
 	
 	/* 
-	 * This test signs in as a manager, navigates into a personal task and updates its attributes.
+	 * This test signs in as a manager and tries to create a new task.
 	 * Every row in csv file is a different case with different errors:
 	 * 
 	 * 	- case 0: All fields blank, errors would rise in every inputbox except link (optional).
@@ -156,5 +156,7 @@ public class ManagerTaskCreateTest extends AcmeWorkplansTest{
 		
 		
 	}
+	
+	
 
 }
