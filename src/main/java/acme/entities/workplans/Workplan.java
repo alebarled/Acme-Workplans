@@ -79,8 +79,10 @@ public class Workplan extends DomainEntity{
 		for(final Task t: this.tasks) {
 			final String[] array = t.getWorkload().toString().split("\\.");
 			String minuteSt = array[1];
-			while(minuteSt.length()<2)
-				minuteSt = minuteSt+"0";
+			while(minuteSt.length()<2) {
+				final String st = minuteSt;
+				minuteSt = st+"0";
+			}
 			hours += Integer.parseInt(array[0]);
 			minutes += Integer.parseInt(minuteSt);
 		}
@@ -89,8 +91,10 @@ public class Workplan extends DomainEntity{
 		
 		String stringMinutes = String.valueOf(minutes);
 		
-		while(stringMinutes.length()<2)
-			stringMinutes = "0"+stringMinutes;
+		while(stringMinutes.length()<2) {
+			final String st = stringMinutes;
+			stringMinutes = "0"+st;
+		}
 		
 		
 		return Double.parseDouble(hours+"."+stringMinutes);
