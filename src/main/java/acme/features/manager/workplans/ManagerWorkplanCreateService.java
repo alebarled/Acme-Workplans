@@ -103,7 +103,7 @@ public class ManagerWorkplanCreateService implements AbstractCreateService<Manag
 		
 		/// Private tasks validate
 		
-		if(entity.getIsPublic() && entity.getTasks()!=null) {
+		if(entity.getIsPublic().equals(true) && entity.getTasks()!=null) {
 			final Long privateTasks = entity.getTasks().stream().filter(x->!x.getIsPublic()).count();
 			errors.state(request, privateTasks.equals(0L), "isPublic", "acme.validators.privatetasks");
 		}
@@ -114,8 +114,8 @@ public class ManagerWorkplanCreateService implements AbstractCreateService<Manag
 			errors.state(request, entity.getExecutionStart().before(entity.getExecutionEnd()), "executionEnd", "acme.validators.validdates");
 		
 		if(entity.getNewTasks()!=null && !errors.hasErrors("executionStart") && !errors.hasErrors("executionEnd")) {
-			final Date maxEnd = entity.getTasks().stream().map(Task::getExecutionEnd).max(Comparator.naturalOrder()).get();
-			final Date minStart = entity.getTasks().stream().map(Task::getExecutionStart).min(Comparator.naturalOrder()).get();
+			final Date maxEnd = entity.getTasks().stream().map(Task::getExecutionEnd).max(Comparator.naturalOrder()).orElse(null);
+			final Date minStart = entity.getTasks().stream().map(Task::getExecutionStart).min(Comparator.naturalOrder()).orElse(null);
 			
 			final Boolean correct = entity.getExecutionStart().compareTo(minStart)<=0 &&
 				entity.getExecutionEnd().compareTo(maxEnd)>=0;
