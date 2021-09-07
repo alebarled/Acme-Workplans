@@ -317,13 +317,13 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 			public Float getMinimumWorkloadsWorkplan(final Request<Dashboard> request) {
 				assert request!=null;
 				
-				return (float)(double)this.repository.findAllWorkplans().stream().map(x->x.getWorkload()).min(Comparator.naturalOrder()).orElse(null);
+				return (float)(double)this.repository.findAllWorkplans().stream().map(Workplan::getWorkload).min(Comparator.naturalOrder()).orElse(null);
 				
 			}
 
 			public Float getMaximumWorkloadsWorkplan(final Request<Dashboard> request) {
 				assert request!=null;
-				return (float)(double)this.repository.findAllWorkplans().stream().map(x->x.getWorkload()).max(Comparator.naturalOrder()).orElse(null);
+				return (float)(double)this.repository.findAllWorkplans().stream().map(Workplan::getWorkload).max(Comparator.naturalOrder()).orElse(null);
 
 				
 			}
