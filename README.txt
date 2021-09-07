@@ -9,8 +9,9 @@
 # they accept any liabilities with respect to them.
 
 This is the Acme-Workplans project, providing shouts, workplans and tasks service for the users.
+develop-endpoint: http://localhost:8080/Acme-Workplans
 link: https://github.com/alebarled/Acme-Workplans
 Clevercloud:
  - username: alebarled@alum.us.es
  - password: ********* (Password included in Item 2 for obvious security reasons)
-link-release: https://github.com/alebarled/Acme-Workplans/releases/tag/1.0.0
+link-release: https://github.com/alebarled/Acme-Workplans/releases/tag/1.3.0
