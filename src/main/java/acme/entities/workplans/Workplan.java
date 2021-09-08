@@ -8,8 +8,10 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.Index;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
@@ -28,6 +30,7 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
+@Table(indexes = { @Index(columnList= "isPublic, executionEnd, id, manager_id")})
 public class Workplan extends DomainEntity{
 	
 	// Serialisation identifier -----------------------------------------------
