@@ -1,3 +1,0 @@
-timestamp,test-class,test-method,time,description,result
-2021-09-04 17:30:56.816,acme.testing.authenticated.task.AuthenticatedTaskShowTest,showPositive,3458,"[1] index=13, title=Create TaskService, executionStart=2021/02/13 19:39, executionEnd=2021/05/14 19:39, workload=50.5, description=Create service of task entity, link=https://github.com/task2",OK
-2021-09-04 17:31:30.203,acme.testing.authenticated.task.AuthenticatedTaskShowTest,showNegative,33027,"showNegative()",Action didn't result in panic

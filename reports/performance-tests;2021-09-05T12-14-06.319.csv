@@ -1,3 +1,0 @@
-timestamp,test-class,test-method,time,description,result
-2021-09-05 12:14:35.993,acme.testing.manager.workplan.ManagerWorkplanDeleteTest,deletePositive,14982,"deletePositive()",OK
-2021-09-05 12:14:39.924,acme.testing.manager.workplan.ManagerWorkplanDeleteTest,deleteNegative,3474,"deleteNegative()",OK
