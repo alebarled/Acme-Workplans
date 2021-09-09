@@ -14,4 +14,7 @@ link: https://github.com/alebarled/Acme-Workplans
 Clevercloud:
  - username: alebarled@alum.us.es
  - password: ********* (Password included in Item 2 for obvious security reasons)
-link-release: https://github.com/alebarled/Acme-Workplans/releases/tag/1.3.0
+link-release: https://github.com/alebarled/Acme-Workplans/releases/tag/1.4.0
+
+NOTE: there is a small syntax error in one js used for workplans, it looks like a syntax check bug of eclipse,
+we can't find any problem with those lines and everything works like a charm.
