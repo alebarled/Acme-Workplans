@@ -1,6 +1,0 @@
-timestamp,test-class,test-method,time,description,result
-2021-09-05 12:23:55.405,acme.testing.manager.workplan.ManagerWorkplanListTest,listPositive,4925,"[1] index=0, title=Important tasks, executionStart=2020/02/12 08:00, executionEnd=2022/06/22 20:00, workload=93.10, isPublic=true",OK
-2021-09-05 12:24:00.564,acme.testing.manager.workplan.ManagerWorkplanListTest,listPositive,4791,"[2] index=1, title=Students plan, executionStart=2017/08/12 08:00, executionEnd=2021/06/16 17:00, workload=113.10, isPublic=false",OK
-2021-09-05 12:24:05.49,acme.testing.manager.workplan.ManagerWorkplanListTest,listPositive,4546,"[3] index=2, title=Empty plan, executionStart=2017/08/12 08:00, executionEnd=2021/05/15 17:00, workload=0.00, isPublic=false",OK
-2021-09-05 12:24:09.373,acme.testing.manager.workplan.ManagerWorkplanListTest,listPositiveNoWorkplanPrivate,3466,"[1] index=0, title=Webapp tasks, executionStart=2019/02/12 08:00, executionEnd=2022/06/22 20:00, workload=65.00, isPublic=false",OK
-2021-09-05 12:24:10.443,acme.testing.manager.workplan.ManagerWorkplanListTest,listNegative,664,"listNegative()",OK

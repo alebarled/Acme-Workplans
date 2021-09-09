@@ -1,3 +1,0 @@
-timestamp,test-class,test-method,time,description,result
-2021-09-05 12:39:46.111,acme.testing.manager.workplan.ManagerWorkplanShowTest,showPositive,4026,"[1] index=61, title=Important tasks, executionStart=2020/02/12 08:00, executionEnd=2022/06/22 20:00, workload=93.10, description=Must-do before start others!, isPublic=true, tasks=Create TaskController;Create TaskService;Create TaskView",OK
-2021-09-05 12:39:49.617,acme.testing.manager.workplan.ManagerWorkplanShowTest,showNegative,3073,"showNegative()",OK

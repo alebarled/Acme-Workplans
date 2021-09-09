@@ -1,3 +1,0 @@
-timestamp,test-class,test-method,time,description,result
-2021-09-05 09:25:36.7,acme.testing.anonymous.workplan.AnonymousWorkplanShowTest,showPositive,1752,"[1] index=61, title=Important tasks, executionStart=2020/02/12 08:00, executionEnd=2022/06/22 20:00, workload=93.10, description=Must-do before start others!, isPublic=true, tasks=Create TaskController;Create TaskService;Create TaskView",OK
-2021-09-05 09:25:38.322,acme.testing.anonymous.workplan.AnonymousWorkplanShowTest,showNegative,1174,"showNegative()",OK
